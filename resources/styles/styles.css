@@ -1,16 +1,15 @@
 *{
     font-family: Arial, Helvetica, sans-serif;
+    color: rgb(193, 229, 240)
 }
 
 body{
-    background-image: linear-gradient(rgb(185, 185, 255), rgb(137, 137, 192))
+    background-color: rgb(0, 1, 61);
 
 }
 
 nav{
-    margin: 10px;
     padding: 10px;
-    border: solid black;
     text-align: right;
 }
 
@@ -27,10 +26,24 @@ nav li#portfolio-button{
 }
 
 header{
-    padding: 10px;
+    padding: 50px;
     margin: 5px;
-    background-image: linear-gradient(45deg, rgb(235, 235, 254),rgb(141, 141, 233));
-    border-radius: 10px;
+    height: 300px;
+}
+
+header h3{
+    margin: 0;
+}
+
+header h1{
+    font-size: 50px;
+    text-underline-offset: 25px;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+#header-wording{
+    width: 500px;
 }
 
 #section-container{
@@ -41,7 +54,7 @@ header{
 #projects, #resume, #skills{
     border: solid black;
     height: 300px;
-    width: 200px;
+    width: 400px;
     padding: 10px;
     margin: 10px;
 }
