@@ -6,37 +6,183 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> Jacob Braley - Software Developer </title>
         <link rel="stylesheet" href="./resources/styles/styles.css">
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const sections = document.querySelectorAll('main section');
+                const navLinks = document.querySelectorAll('nav ul li a');
+
+                const options = {
+                    root: null,
+                    rootMargin: '0px',
+                    threshold: 0.6
+                }
+
+                const observer = new IntersectionObserver(function (entries, observer) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            navLinks.forEach(link => {
+                                link.classList.remove('active');
+                                if (link.getAttribute('href').substring(1) === entry.target.id ||
+                                    (entry.target.tagName.toLowerCase() === 'header' && link.getAttribute('href') === '#about'))
+                                {
+                                    link.classList.add('active');
+                                }
+                            });
+                        }
+                    });
+                }, options);
+
+                sections.forEach(section => {
+                    observer.observe(section);
+                });
+
+                // Toggle menu for small screens
+                const navToggle = document.getElementById('nav-toggle');
+                const navMenu = document.getElementById('nav-menu');
+
+                navToggle.addEventListener('click', function () {
+                    if (navMenu.classList.contains('open')){
+                        navMenu.classList.remove('open');
+                        navMenu.classList.add('close');
+                        navToggle.classList.remove('open');
+                        navToggle.classList.add('close');
+                    }
+                    else {
+                        navMenu.classList.remove('close');
+                        navMenu.classList.add('open');
+                        navToggle.classList.remove('close');
+                        navToggle.classList.add('open');
+                    }
+                });
+            });
+        </script>
     </head>
     <body>
-          <main>
+        <section id="navigation-bar">
             <nav>
-                <ul>
-                    <li>Resume</li>
-                    <li>Contact</li>
-                    <li id="portfolio-button">Portfolio</li>
+                <div id="nav-toggle">&#9776;</div>
+                <ul id="nav-menu">
+                    <li id="nav-name">Jacob Braley</li>
+                    <li><a href="#about">// About</a></li>
+                    <li id="portfolio-button"><a href="#projects">// Portfolio</a></li>
+                    <li><a href="#resume">// Resume</a></li>
                 </ul>
             </nav>
-            <header>
-                <section id="header-wording">
-                    <h3>Hi, my name is</h3>
+        </section>
+        <header>
+            <section id="header-wording">
+                    <h3>Hello World, I'm</h3>
                     <h1><u>Jacob Braley</u></h1>
                     <h2>Software developer</h2>
-                </section>
-            </header>
+                    <div id="socials">
+
+                    </div>
+            </section>
+        </header>
+        <main>
             <section id="section-container">
                 <section id="projects">
-                    <h2>Projects</h2>
+                    <h2>// Projects</h2>
+                    <h2>/*</h2>
+                    <div class="project" onclick="location.href='web-scraper.html';">
+                        <div class="thumbnail" style="background-image: url('./resources/images/user-stories.PNG');"></div>
+                        <div class="description">
+                            <h3>Web Scraper</h3>
+                            <p>A tool that analyzes and extracts static elements from a localized website and organizes the information into several different formats</p>
+                            <div class="tags">
+                                <span class="tag">Java</span>
+                                <span class="tag">html</span>
+                                <span class="tag">Gradle</span>
+                                <span class="tag">Agile development</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project" onclick="location.href='cpu-temp-analyzer.html';">
+                        <div class="thumbnail" style="background-image: url('./resources/images/temp-analyzer-codesnip.PNG');"></div>
+                        <div class="description">
+                            <h3>CPU Temperature Analyzer</h3>
+                            <p>Analyzes raw CPU temperature data and determines the linear approximation and interpolation of the averages of the data.</p>
+                            <div class="tags">
+                                <span class="tag">Python</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project" onclick="location.href='disk-scheduler.html';">
+                        <div class="thumbnail" style="background-image: url('./resources/images/disk-scheduling-codesnip.PNG');"></div>
+                        <div class="description">
+                            <h3>Disk Scheduler</h3>
+                            <p>Simulates various disk scheduling algorithms to compare their performance.</p>
+                            <div class="tags">
+                                <span class="tag">C++</span>
+                            </div>
+                        </div>
+                    </div>
+                    <h2>*/</h2>
                 </section>
                 <section id="resume">
-                    <h2>Resume</h2>
+                    <h2>// Experience</h2>
+                    <h2>/*</h2>
+                    <div id="geico-imaging">
+                        <h3>GEICO - Imaging Specialist</h3>
+                        <h3>October 2018 - Present</h3>
+                        <p>
+                            Processed and digitally archived a variety of incoming document mailings, ensuring accurate categorization and efficient retrieval in accordance with regional guidelines.
+                            Indexed digital documents, attaching ID numbers depending on document type.
+                            Operated advanced IBML scanning technology to digitize physical documents.
+                            Handled document retrieval as requested by clients.
+                            Contributed to department inventory management.
+                            Participated in pilot programs in order to enhance system functionalities.
+                            Displayed a high level of attention to detail and the ability to adapt to new technologies and procedures quickly.
+                            Assisted other departments as needed.
+                        </p>
+                    </div>
+                    <div id="nadc">
+                        <h3>North American Digital Communications - IT Equipment Mover</h3>
+                        <h3>2014 - 2015</h3>
+                        <p>
+                            Responsible for disassembly, packing, transportation, and setup of IT equipment during office relocations.
+                            Followed detailed plans, ensuring all components were correctly installed and operational, maintaining a seamless transition for users.
+                        </p>
+                    </div>
+                    <div id="kohls">
+                        <h3>Kohl's Corporation - Sales Associate, Freight Unloader, POS Associate</h3>
+                        <h3>July 2015 - 2019</h3>
+                        <p>
+                            Sorted and maintained the presentation of the sales floor and fitting rooms.
+                            Fulfilled online orders by collecting and packaging requested items for in-store pickup.
+                            Provided friendly and knowledgeable assistance to customers.
+                            Operated registers, performing cash handling duties when required.
+                            Solicited credit applications.
+                            Unloaded incoming shipments, processed freight and replenished stock on the sales floor.
+                            Worked collaboratively to achieve company goals.
+                        </p>
+                    </div>
+                    <h2>*/</h2>
                 </section>
                 <section id="skills">
-                    <h2>Skills</h2>
+                    <h2>// Skills</h2>
+                    <h2>/*</h2>
+                    <div class="skills-tags">
+                        <span class="skills-tag">Java</span>
+                        <span class="skills-tag">C</span>
+                        <span class="skills-tag">C++</span>
+                        <span class="skills-tag">Python</span>
+                        <span class="skills-tag">Unix</span>
+                        <span class="skills-tag">Structured Query Language (SQL)</span>
+                        <span class="skills-tag">MySQL</span>
+                        <span class="skills-tag">Database Design & Development</span>
+                        <span class="skills-tag">User Story Creation</span>
+                        <span class="skills-tag">html</span>
+                        <span class="skills-tag">CSS</span>
+                        <span class="skills-tag">Makefile</span>
+                        <span class="skills-tag">Gradle</span>
+                        <span class="skills-tag">Software Requirements Specifications (SRS)</span>
+                        <span class="skills-tag">User Story Creation</span>
+                        <span class="skills-tag">Agile development</span>
+                    </div>
+                    <h2>*/</h2>
                 </section>
             </section>
-            <footer>
-
-            </footer>
-          </main>  
+        </main>  
     </body>
 </html>
