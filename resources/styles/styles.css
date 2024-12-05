@@ -157,6 +157,16 @@ header h1{
 
 }
 
+.thumbnail-bullyblock{
+    flex: 0 0 150px;
+    height: 150px;
+    width: auto;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 10px;
+}
+
 .description{
     padding: 10px;
     flex-grow: 1;
@@ -178,6 +188,7 @@ header h1{
     padding: 5px 10px;
     border-radius: 3px;
     margin-right: 5px;
+    margin-bottom: 10px;
     font-size: 12px;
 }
 
@@ -221,9 +232,23 @@ header h1{
         margin-bottom: 10px;
     }
 
+    .thumbnail-bullyblock{
+        flex: 0 0 150px;
+        height: 150px;       
+        width: 100%;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        margin: 10px;
+    }
+
     .description {
         width: 100%;
         padding: 20px;
+    }
+
+    .tag {
+        margin-bottom: 10px;
     }
 
     #navigation-bar nav {
